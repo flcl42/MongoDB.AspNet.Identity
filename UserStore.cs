@@ -544,6 +544,55 @@ namespace MongoDB.AspNet.Identity
         }
 
         #endregion
+        
+        #region IUserLockoutStore
+        public Task<int> GetAccessFailedCountAsync(TUser user)
+        {
+            return Task.FromResult(0);
+        }
+
+        public Task<bool> GetLockoutEnabledAsync(TUser user)
+        {
+            return Task.FromResult(false);
+        }
+
+        public Task<DateTimeOffset> GetLockoutEndDateAsync(TUser user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> IncrementAccessFailedCountAsync(TUser user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ResetAccessFailedCountAsync(TUser user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SetLockoutEnabledAsync(TUser user, bool enabled)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SetLockoutEndDateAsync(TUser user, DateTimeOffset lockoutEnd)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region IUserTwoFactorStore
+        public Task<bool> GetTwoFactorEnabledAsync(TUser user)
+        {
+            return Task.FromResult(false);
+        }
+
+        public Task SetTwoFactorEnabledAsync(TUser user, bool enabled)
+        {
+            return Task.Delay(0);
+        }
+        #endregion
     }
 }
         
